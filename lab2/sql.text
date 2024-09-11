@@ -1,0 +1,14 @@
+CREATE DATABASE gestion_automoviles;
+
+USE gestion_automoviles;
+
+CREATE TABLE automoviles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    placa VARCHAR(6) NOT NULL,
+    marca VARCHAR(50) NOT NULL,
+    modelo VARCHAR(50) NOT NULL,
+    anio INT NOT NULL,
+    color VARCHAR(30) NOT NULL,
+    motor VARCHAR(30) NOT NULL,
+    chasis VARCHAR(30) NOT NULL
+);
