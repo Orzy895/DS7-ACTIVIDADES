@@ -12,6 +12,7 @@ class Automovil
     public $anio;
     public $color;
     public $propietario_id;
+    public $tipo;
 
     // Constructor que recibe la conexión a la base de datos
     public function __construct($db)
@@ -23,7 +24,7 @@ class Automovil
     public function registrar()
     {
         // Query para insertar un nuevo automóvil
-        $query = "INSERT INTO " . $this->table_name . " (placa, marca_id, modelo_id, anio, color, propietario_id) VALUES (:placa, :marca_id, :modelo_id, :anio, :color, :propietario_id)";
+        $query = "INSERT INTO " . $this->table_name . " (placa, marca_id, modelo_id, anio, color, propietario_id, tipo) VALUES (:placa, :marca_id, :modelo_id, :anio, :color, :propietario_id, :tipo)";
 
         // Preparar la declaración
         $stmt = $this->conn->prepare($query);
@@ -35,6 +36,7 @@ class Automovil
         $this->anio = htmlspecialchars(strip_tags($this->anio));
         $this->color = htmlspecialchars(strip_tags($this->color));
         $this->propietario_id = htmlspecialchars(strip_tags($this->propietario_id));
+        $this->tipo = htmlspecialchars(strip_tags($this->tipo));
 
         // Enlazar los parámetros
         $stmt->bindParam(":placa", $this->placa);
@@ -43,6 +45,7 @@ class Automovil
         $stmt->bindParam(":anio", $this->anio);
         $stmt->bindParam(":color", $this->color);
         $stmt->bindParam(":propietario_id", $this->propietario_id);
+        $stmt->bindParam(":tipo", $this->tipo);
 
         // Ejecutar la declaración
         if ($stmt->execute()) {
@@ -58,6 +61,7 @@ class Automovil
                     automoviles.placa, 
                     automoviles.anio, 
                     automoviles.color, 
+                    automoviles.tipo,
                     propietarios.nombre AS propietario, 
                     marcas.nombre AS marca, 
                     modelos.nombre AS modelo
@@ -90,7 +94,8 @@ class Automovil
         $query  = "SELECT 
                     automoviles.placa, 
                     automoviles.anio, 
-                    automoviles.color, 
+                    automoviles.color,
+                    automoviles.tipo,
                     propietarios.nombre AS propietario, 
                     marcas.nombre AS marca, 
                     modelos.nombre AS modelo

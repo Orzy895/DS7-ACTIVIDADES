@@ -26,6 +26,7 @@ CREATE TABLE automoviles (
     placa VARCHAR(6) NOT NULL,
     anio INT NOT NULL,
     color VARCHAR(30) NOT NULL,
+    tipo VARCHAR(30) NOT NULL,
     marca_id INT NOT NULL,
     modelo_id INT NOT NULL,
     propietario_id INT NOT NULL,

@@ -36,6 +36,8 @@ $resultado = $automovil->busquedaPlaca();
                 <th>Modelo</th>
                 <th>Año</th>
                 <th>Color</th>
+                <th>Propietario</th>
+                <th>Tipo de Vehiculo</th>
             </tr>
             <?php if ($resultado) : ?>
                 <tr>
@@ -44,6 +46,8 @@ $resultado = $automovil->busquedaPlaca();
                     <td><?php echo $resultado['modelo']; ?></td>
                     <td><?php echo $resultado['anio']; ?></td>
                     <td><?php echo $resultado['color']; ?></td>
+                    <td><?php echo $result['propietario']; ?></td>
+                    <td><?php echo $result['tipo']; ?></td>
                 </tr>
             <?php else: ?>
                 <tr>

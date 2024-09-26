@@ -12,8 +12,8 @@ $db = $database->getConnection();
 $automovil = new Automovil($db);
 
 //Si marca y modelo estan vacios
-if (empty($_POST['marca']) || empty($_POST['modelo'])) {
-    echo "Seleccione una marca y modelo para poder registar el automovil";
+if (empty($_POST['marca']) || empty($_POST['modelo']) || empty($_POST['modelo'])) {
+    echo "Seleccione una marca, modelo y tipo de vehiculo para poder registar el automovil";
     exit();
 }
 
@@ -23,13 +23,14 @@ $automovil->marca_id = $_POST['marca'];
 $automovil->modelo_id = $_POST['modelo'];
 $automovil->anio = $_POST['anio'];
 $automovil->color = $_POST['color'];
+$automovil->tipo = $_POST['tipo'];
 
 //Revisar si el propietario existe
 $propietario = new Propietario($db);
 $propietario->identificacion = $_POST['propietario'];
 if ($propietario->existeIdentificacion()) {
     $automovil->propietario_id = $propietario->id;
-    
+
     // Registrar el automóvil
     if ($automovil->registrar()) {
         echo "Automóvil registrado exitosamente.";

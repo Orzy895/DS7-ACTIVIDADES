@@ -43,6 +43,14 @@ $listaMarcas = $marcas->obtenerMarcas();
             <option value="">Seleccione un modelo</option>
         </select>
 
+        <label for="tipo">Tipo de automóvil:</label>
+        <select name="tipo" id="tipo">
+            <option value="">Seleccione un tipo de automóvil</option>
+            <option value="Sedan">Sedán</option>
+            <option value="Pickup">Pickup</option>
+            <option value="Coupe">Coupé</option>
+        </select>
+
         <label for="anio">Año:</label>
         <input type="number" id="anio" name="anio" required><br>
 

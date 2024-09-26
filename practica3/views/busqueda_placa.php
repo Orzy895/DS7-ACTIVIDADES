@@ -45,6 +45,7 @@ $resultado = $automovil->obtenerCarros()
                 <th>Año</th>
                 <th>Color</th>
                 <th>Propietario</th>
+                <th>Tipo de Vehiculo</th>
             </tr>
             <?php if ($resultado): ?>
                 <?php foreach ($resultado as $result): ?>
@@ -55,6 +56,7 @@ $resultado = $automovil->obtenerCarros()
                         <td><?php echo $result['anio']; ?></td>
                         <td><?php echo $result['color']; ?></td>
                         <td><?php echo $result['propietario']; ?></td>
+                        <td><?php echo $result['tipo']; ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
